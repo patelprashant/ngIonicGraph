@@ -1,1 +1,71 @@
 /* Empty. Add your own CSS if you like */
+
+
+body {
+  text-align: center;
+}
+.chart {
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: 10px auto;
+  position: relative;
+}
+.y {
+  position: absolute;
+  -webkit-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transform-origin: bottom left;
+      -ms-transform-origin: bottom left;
+          transform-origin: bottom left;
+  bottom: 0;
+  padding: 5px 0 10px 0;
+}
+.y-label{
+    font-size: 75%;
+    position: absolute;
+    border: 1px solid;
+    width: 100%;
+    text-align: left;
+}
+.x {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  padding: 5px;
+}
+.bar {
+  background: grey;
+  position: absolute;
+  bottom: 0;
+  border: 1px solid #272525;
+  border-bottom: none;
+  font-size: 75%;
+
+}
+.bar:nth-of-type(even) {
+  background: rgb(173, 173, 173);
+  border: 1px solid #747474;
+  border-bottom: none;
+}
+
+
+.dot {
+  background: blue;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+
+svg {
+  position: absolute;
+  transform: rotateX(180deg);
+  left: 0;
+}
+
+line  {
+  stroke:red;
+  stroke-width:3px;
+}

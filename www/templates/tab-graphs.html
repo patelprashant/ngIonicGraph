@@ -1,0 +1,63 @@
+<ion-view view-title="Graphs">
+    <ion-content>
+        <h2 class="title">Graphs</h2>
+        <div class="button-bar">
+            <a class="button" href="/#bar-chart">Bar Chart</a>
+            <a class="button" href="/#dot-chart">Dot Chart</a>
+            <a class="button" href="#line-chart">Line Chart</a>
+        </div>
+
+        <div class="list">
+            <div class="item item-divider"><a name="bar-chart"></a>Bar Chart</div>
+            <div class="item">
+                <div class="chart" style="width:{{width}}px; height:{{height}}px;">
+                    <!-- Labels -->
+                    <div>
+                        <h4 class="y" style="width:{{height}}px;">{{yAxis}}</h4>
+                        <ul>
+                            <li class="y-label" ng-repeat="y in mySales" style="top:{{y.value / max * height - 10}}px;">{{y.value}}</li>
+                        </ul>
+                    </div>
+                    <div class="x">
+                        <h4>{{xAxis}}</h4>
+                    </div>
+                    <div ng-repeat="bar in mySales" class="bar" style="height: {{bar.value / max * height}}px; width:{{width / mySales.length - 5}}px; left:{{$index / mySales.length * width}}px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="item item-divider"><a name="dot-chart"></a>Dot Chart</div>
+            <div class="item">
+                <div class="chart" style="width:{{width}}px; height:{{height}}px;">
+                    <!-- Labels -->
+                    <div class="y" style="width:{{height}}px;">{{yAxis}}</div>
+                    <div class="x">{{xAxis}}</div>
+                    <div ng-repeat="dot in mySales" class="dot" style="bottom:{{dot.value / max * height}}px; left:{{($index + 0.5) / mySales.length * width}}px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="item item-divider"><a name="line-chart"></a>SVG Chart</div>
+            <div class="item">
+                <div class="chart" style="width:{{width}}px; height:{{height}}px;">
+                    <!-- Labels -->
+                    <div class="y" style="width:{{height}}px;">{{yAxis}}</div>
+                    <div class="x">{{xAxis}}</div>
+
+                    <!-- Data -->
+                    <svg style="width:{{width}}px; height:{{height}}px;">
+
+                    <line ng-repeat="line in mySales"
+                          x1="{{$index / mySales.length * width}}"
+                          y1="{{mySales[$index - 1].value / max * height}}"
+                          x2="{{($index + 1) / mySales.length * width}}"
+                          y2="{{line.value / max * height}}">
+                    </line>
+
+                    </svg>
+
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
